@@ -106,7 +106,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <h1 className="header-title text-2xl font-bold">Anonim Feedback</h1>
+              <h1 className="header-title text-2xl font-bold"> WEB3 Wanderers Anonim Feedback</h1>
             </div>
             <div className="flex items-center">
               {!walletConnected ? (
