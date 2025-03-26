@@ -106,7 +106,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <h1 className="header-title text-xl font-bold">WEB3 Wanderers Anonim Feedback</h1>
+              <h1 className="header-title text-xl font-bold">Anonim Feedback</h1>
             </div>
             <div className="flex items-center">
               {!walletConnected ? (
@@ -147,11 +147,11 @@ function App() {
           )}
 
           <div className="flex justify-center items-center h-full">
-            <div className="w-full">
+            <div className="w-full max-w-3xl">
               {walletConnected ? (
                 <>
-                  <div className="feedback-form mb-8">
-                    <h2 className="text-center mb-6">Geri Bildirim Gönder</h2>
+                  <div className="feedback-form mb-8 px-8 py-10">
+                    <h2 className="text-center mb-6 text-2xl">Geri Bildirim Gönder</h2>
                     <form onSubmit={sendFeedback} className="space-y-6">
                       <div>
                         <label htmlFor="feedback" className="block text-sm font-medium text-gray-700 mb-1">Feedback</label>
@@ -159,8 +159,8 @@ function App() {
                           id="feedback"
                           value={feedback}
                           onChange={(e) => setFeedback(e.target.value)}
-                          rows={4}
-                          className="mt-1"
+                          rows={6}
+                          className="mt-1 w-full"
                           placeholder="Geri bildiriminizi buraya yazın..."
                         />
                       </div>
@@ -168,7 +168,7 @@ function App() {
                         <button
                           type="submit"
                           disabled={isLoading}
-                          className={`btn-primary ${isLoading ? 'btn-disabled' : ''}`}
+                          className={`btn-primary py-3 px-8 text-lg ${isLoading ? 'btn-disabled' : ''}`}
                         >
                           {isLoading ? 'Gönderiliyor...' : 'Gönder'}
                         </button>
@@ -176,21 +176,21 @@ function App() {
                     </form>
                   </div>
 
-                  <div className="card">
-                    <h2 className="text-center mb-6">Geri Bildirimler</h2>
+                  <div className="card px-8 py-10">
+                    <h2 className="text-center mb-6 text-2xl">Geri Bildirimler</h2>
                     {messages.length === 0 ? (
-                      <div className="text-center text-gray-500 py-8 bg-gray-50 rounded-lg border border-gray-100">
-                        <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="text-center text-gray-500 py-10 bg-gray-50 rounded-lg border border-gray-100">
+                        <svg className="mx-auto h-16 w-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                         </svg>
-                        <p className="mt-2">Henüz geri bildirim bulunmuyor.</p>
+                        <p className="mt-2 text-lg">Henüz geri bildirim bulunmuyor.</p>
                       </div>
                     ) : (
-                      <div className="space-y-4 max-h-80 overflow-y-auto pr-1">
+                      <div className="space-y-4 max-h-96 overflow-y-auto pr-1">
                         {messages.map((message) => (
-                          <div key={message.id.toString()} className="border-b border-gray-100 pb-4 hover:bg-gray-50 p-4 rounded-lg transition-colors duration-200">
-                            <p className="text-gray-700">{message.content}</p>
-                            <p className="text-sm text-gray-500 mt-2 flex items-center">
+                          <div key={message.id.toString()} className="border-b border-gray-100 pb-6 hover:bg-gray-50 p-6 rounded-lg transition-colors duration-200">
+                            <p className="text-gray-700 text-lg">{message.content}</p>
+                            <p className="text-sm text-gray-500 mt-3 flex items-center">
                               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
@@ -203,15 +203,15 @@ function App() {
                   </div>
                 </>
               ) : (
-                <div className="feedback-form text-center py-12">
-                  <svg className="mx-auto h-16 w-16 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="feedback-form text-center py-16">
+                  <svg className="mx-auto h-20 w-20 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
-                  <h2 className="mt-4 mb-6">Anonim Feedback</h2>
-                  <p className="text-center text-gray-600 mb-6">Devam etmek için cüzdanınızı bağlayın.</p>
+                  <h2 className="mt-6 mb-6 text-2xl">Anonim Feedback</h2>
+                  <p className="text-center text-gray-600 mb-8 text-lg">Devam etmek için cüzdanınızı bağlayın.</p>
                   <button
                     onClick={connectWallet}
-                    className="btn-primary mx-auto"
+                    className="btn-primary mx-auto py-3 px-8 text-lg"
                   >
                     Cüzdanı Bağla
                   </button>
