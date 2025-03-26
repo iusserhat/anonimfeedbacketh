@@ -3,4 +3,9 @@
   X-XSS-Protection: 1; mode=block
   Cache-Control: public, max-age=300, s-maxage=600
   Access-Control-Allow-Origin: *
-  Content-Security-Policy: default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; connect-src 'self' https: wss:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; upgrade-insecure-requests; 
+  # CSP'yi SPA'lara uygun olarak gevşetiyorum
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob: wss:; connect-src 'self' https: wss:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; upgrade-insecure-requests;
+
+# Bu, SPA yönlendirmesi için kritik önem taşır
+/index.html
+  Cache-Control: no-cache
